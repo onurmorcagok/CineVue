@@ -23,6 +23,6 @@ export default {
 body {
   background-image: url("https://i0.wp.com/harborhonolulu.org/wp-content/uploads/2019/05/movie-theater-background.jpg?ssl=1");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
 }
 </style>
