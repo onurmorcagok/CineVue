@@ -54,7 +54,7 @@
           </li>
         </ul>
         <div class="icon">
-          <button class="btn btn-dark">SIGN IN</button>
+          <button class="btn btn-danger">SIGN IN</button>
         </div>
       </div>
     </nav>
