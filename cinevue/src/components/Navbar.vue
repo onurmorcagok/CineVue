@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
       <a class="navbar-brand" href="#">
         <img
           class="img"
@@ -26,26 +26,30 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">
               <i class="fas fa-thumbs-up">
-                  <span>Popular</span></i>
+                <span>Popular</span>
+              </i>
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <i class="fas fa-play-circle">
-                  <span>Now Playing</span></i>
+                <span>Now Playing</span>
+              </i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <i class="fas fa-list-alt">
-                  <span>Top Rated</span></i>
+                <span>Top Rated</span>
+              </i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <i class="fas fa-file-video">
-                  <span>Upcoming</span></i>
+                <span>Upcoming</span>
+              </i>
             </a>
           </li>
         </ul>
@@ -79,10 +83,10 @@ export default {
 }
 
 span {
-    margin-left:3px;
+  margin-left: 3px;
 }
 
 li {
-    font-size: 20px;
+  font-size: 20px;
 }
 </style>
