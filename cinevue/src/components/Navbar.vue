@@ -1,14 +1,14 @@
 <template>
   <div>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
-      <a class="navbar-brand" href="#">
+      <router-link class="nav-link" to="/">
         <img
           class="img"
           src="https://pbs.twimg.com/profile_images/1288534032020647936/FR_a2W9i_400x400.jpg"
           style="width: 70px;"
         />
         <label class="label">CineVue</label>
-      </a>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -24,37 +24,42 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <router-link class="nav-link" to="/">
               <i class="fas fa-thumbs-up">
                 <span>Popular</span>
               </i>
               <span class="sr-only">(current)</span>
-            </a>
+           </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <router-link class="nav-link" to="/now-playing">
               <i class="fas fa-play-circle">
                 <span>Now Playing</span>
               </i>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <router-link class="nav-link" to="/top-rated">
               <i class="fas fa-list-alt">
                 <span>Top Rated</span>
               </i>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <router-link class="nav-link" to="/upcoming">
               <i class="fas fa-file-video">
                 <span>Upcoming</span>
               </i>
-            </a>
+            </router-link>
+          </li>
+           <li class="nav-item">
+            <router-link v-if="isLogin" class="nav-link" to="/watchlist">Watchlist</router-link>
           </li>
         </ul>
-        <div class="icon">
-          <button class="btn btn-danger">SIGN IN</button>
+        <div class="login my-2 my-lg-0 mr-4">
+          <button 
+          class="btn btn-danger my-2 my-sm-0 text-white"
+          @click="loginHandler">{{isLogin ? 'SIGN OUT': 'SIGN IN'}}</button>
         </div>
       </div>
     </nav>
@@ -62,8 +67,26 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: "Navbar",
+  data() {
+    return {
+      status: 'SIGN IN',
+    }
+  },
+  methods: {
+    loginHandler() {
+      if(this.isLogin){
+        this.$store.dispatch("user/sign_out", false);
+      } else {
+        this.$router.push("/sign_in");
+      }
+    }
+  },
+  computed: {
+    ...mapGetters({ isLogin : 'user/isLogin' })
+  }
 };
 </script>
 
@@ -76,6 +99,7 @@ export default {
   margin-left: 10px;
   font-family: "Racing Sans One", cursive;
   font-size: 30px;
+  color:black;
 }
 
 .icon {
@@ -89,4 +113,5 @@ span {
 li {
   font-size: 20px;
 }
+
 </style>

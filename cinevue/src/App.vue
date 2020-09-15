@@ -2,6 +2,7 @@
 <div>
   <body>
     <appNavbar></appNavbar>
+    <router-view></router-view>
     <appFooter></appFooter>
   </body>
 </div>
@@ -23,6 +24,6 @@ export default {
 body {
   background-image: url("https://i0.wp.com/harborhonolulu.org/wp-content/uploads/2019/05/movie-theater-background.jpg?ssl=1");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
 }
 </style>

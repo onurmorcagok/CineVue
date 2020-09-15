@@ -1,11 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import Home from "../views/Home.vue";
+import store from "../store/";
 
 Vue.use(VueRouter)
 
 const routes = [
-  
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+    
+  },
+  {
+    path: '/search/:movieName',
+    name: 'Search',
+    component: import ("../views/SearchMovies.vue"),
+  },
+  {
+    path: '*',
+    redirect: '/'
+  }
+
 ]
 
 const router = new VueRouter({
