@@ -1,33 +1,76 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+
 import store from "../store/";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home,
-    
   },
   {
-    path: '/search/:movieName',
-    name: 'Search',
-    component: import ("../views/SearchMovies.vue"),
+    path: "/now-playing",
+    name: "Now-Playing",
+    component: import("../views/NowPlaying.vue"),
   },
   {
-    path: '*',
-    redirect: '/'
-  }
+    path: "/top-rated",
+    name: "Top-Rated",
+    component: import("../views/TopRated.vue"),
+  },
+  {
+    path: "/upcoming",
+    name: "Upcoming",
+    component: import("../views/Upcoming.vue"),
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: import("../views/Register.vue"),
 
-]
+    beforeSign: (next) => {
+      const isLogin = store.getters["users/isLogin"];
+      if (isLogin) {
+        next("/");
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/sign-in",
+    name: "Sign-In",
+    component: import("../views/SignIn.vue"),
+  },
+  {
+    path: "/watchList",
+    name: "Watch-List",
+    component: import("../views/WatchList.vue"),
+  },
+  {
+    path: "/search/:movieName",
+    name: "Search",
+    component: import("../views/SearchMovies.vue"),
+  },
+  {
+    path: "/movie-detail/:movieID",
+    name: "Movie-Detail",
+    component: import("../views/MovieDetail.vue"),
+  },
+  {
+    path: "*",
+    redirect: "/",
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

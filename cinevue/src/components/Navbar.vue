@@ -59,6 +59,7 @@
         <div class="login my-2 my-lg-0 mr-4">
           <button 
           class="btn btn-danger my-2 my-sm-0 text-white"
+          type="button"
           @click="loginHandler">{{isLogin ? 'SIGN OUT': 'SIGN IN'}}</button>
         </div>
       </div>
