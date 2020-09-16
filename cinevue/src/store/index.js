@@ -6,8 +6,8 @@ const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
 });
 
-import movies from '../store/movies/movies';
-import user from '../store/user/user';
+import movies from './movies/movies';
+import user from './user/user';
 
 Vue.use(Vuex);
 

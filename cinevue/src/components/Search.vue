@@ -2,7 +2,7 @@
     <div class="search">
         <input
         type="text"
-        class="search-box search-bar form-control p-3"
+        class="search-box search-bar form-control p-3 my-4"
         placeholder="Search by movie title"
         v-model="searchMovie">
     </div>
@@ -27,7 +27,8 @@ import debounce from "lodash/debounce";
 </script>
 
 <style>
-.search-box .search-bar {
+
+.search-bar {
   display: block;
   width: 100%;
   padding: 15px;
@@ -41,7 +42,7 @@ import debounce from "lodash/debounce";
   border-radius: 0px 16px 0px 16px;
   transition: 0.4s;
 }
-.search-box .search-bar:focus {
+.search-bar:focus {
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 16px 0px 16px 0px;

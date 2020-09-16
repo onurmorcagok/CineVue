@@ -4,6 +4,10 @@
         <div class="mt-5 mb-4">
         <searchBar></searchBar>
         </div>
+        <h2 class="title">Searched Movies</h2>
+    </div>
+    <div class="movie-list container d-flex flex-wrap">
+      <movieCards v-for="movie in movies" :key="movie.id" :movie="movie"></movieCards>
     </div>
   </div>
 </template>
@@ -11,10 +15,12 @@
 <script>
 import { mapGetters } from 'vuex';
 import Search from '../components/Search'
+import MovieCards from '../components/MovieCards'
 export default {
     name: 'SearchMovies',
     components: {
         searchBar: Search,
+        movieCards: MovieCards,
     },
     computed: {
         ...mapGetters({ movies: 'movies/movies'})
