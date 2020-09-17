@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar fixed-bottom text-dark bg-warning">
+<nav class="navbar text-dark bg-warning">
     <span class="navbar-text mr-auto text-dark">
         <strong>©2020 All Rights Reserved</strong>
        </span>

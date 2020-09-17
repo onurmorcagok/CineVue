@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="app" class="container col-md-12">
   <body>
     <appNavbar></appNavbar>
     <router-view></router-view>
@@ -21,9 +21,14 @@ export default {
 </script>
 
 <style>
+#app {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
 body {
-  background-image: url("https://i0.wp.com/harborhonolulu.org/wp-content/uploads/2019/05/movie-theater-background.jpg?ssl=1");
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAACfCAMAAABX0UX9AAAAA1BMVEUAAACnej3aAAAASElEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABODcYhAAEl463hAAAAAElFTkSuQmCC");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
 }
 </style>

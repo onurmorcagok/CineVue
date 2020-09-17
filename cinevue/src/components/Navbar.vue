@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container col-md-12">
     <nav class="navigation navbar fixed-top navbar-expand-lg navbar-light bg-warning text-dark">
       <router-link class="nav-link" to="/">
         <img

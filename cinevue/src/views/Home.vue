@@ -1,34 +1,40 @@
 <template>
-  <div>
+  <div class="home-page">
     <div class="header">
-      <div class="header-content container py-5 pr-5">
-        <h1 class="header-title font-weight-bold text-white">Welcome.</h1>
-        <h3
-          class="header-description font-weight-bold my-4 mx-auto text-white"
-        >Welcome CineVue</h3>
-        <searchBar></searchBar>
+      <div class="header-content container mt-5 py-5 pr-5">
+        <h1 class="header-title font-weight-bold mt-5 text-white">Welcome CineVue</h1>
+        <h3 class="header-subtitle font-weight-bold mt-3 text-white">Search the movie you want, add it to your watch list if you wish.</h3>  
+        <searchBar></searchBar> <!-- Search Component -->
       </div>
     </div>
-    
+    <div class="container mt-2 mb-4">
+      <h2 class="title font-weight-bold text-white">Popular Movies</h2>
+    </div>
+    <div class="movie-cards container d-flex flex-wrap">
+      <movieCards v-for="movie in movies" :key="movie.id" :movie="movie"></movieCards> <!-- Movie Cards -->
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 import Search from "../components/Search";
+import MovieCards from "../components/MovieCards";
 export default {
   name: "Home",
   components: {
     searchBar: Search,
+    movieCards: MovieCards,
   },
   computed: {
-      ...mapGetters({ movies: 'movies/movies' })
+    ...mapGetters({ movies: "movies/movies" }),
   },
-  created(){
-      this.$store.dispatch('movies/set_movie','popular');
-  }
+  created() {
+    this.$store.dispatch("movies/SET_MOVIE", "popular");
+  },
 };
 </script>
 
 <style>
+
 </style>
