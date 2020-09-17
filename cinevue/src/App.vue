@@ -27,8 +27,8 @@ export default {
   padding: 0;
 }
 body {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAACfCAMAAABX0UX9AAAAA1BMVEUAAACnej3aAAAASElEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABODcYhAAEl463hAAAAAElFTkSuQmCC");
+  background-image: url("https://i.pinimg.com/originals/0b/97/b2/0b97b293ae7b54d6adc4b9332de9e484.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; 
 }
 </style>

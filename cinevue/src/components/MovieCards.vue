@@ -44,6 +44,7 @@ export default {
   width: 12.3rem;
   border-radius: 8px;
   border: 1px solid black;
+  box-shadow: black;
 }
 .movie-card:hover {
   opacity: 0.8;
