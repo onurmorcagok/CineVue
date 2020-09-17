@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header-content container mt-5 py-5 pr-5">
         <h1 class="header-title font-weight-bold mt-5 text-white">Welcome CineVue</h1>
-        <h3 class="header-subtitle font-weight-bold mt-3 text-white">Search the movie you want, add it to your watch list if you wish.</h3>  
+        <h4 class="header-subtitle font-weight-bold mt-3 text-white">Search the movie you want, add it to your watch list if you wish.</h4>  
         <searchBar></searchBar> <!-- Search Component -->
       </div>
     </div>
