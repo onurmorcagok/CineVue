@@ -39,11 +39,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .movie-card {
   width: 12.3rem;
   border-radius: 8px;
-  border: 1px solid black;
+  border: none;
   box-shadow: black;
 }
 .movie-card:hover {
