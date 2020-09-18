@@ -68,26 +68,26 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   name: "Navbar",
   data() {
     return {
-      status: 'SIGN IN',
-    }
+      status: "SIGN IN",
+    };
   },
   methods: {
     loginHandler() {
-      if(this.isLogin){
+      if (this.isLogin) {
         this.$store.dispatch("user/sign_out", false);
       } else {
         this.$router.push("/sign_in");
       }
-    }
+    },
   },
   computed: {
-    ...mapGetters({ isLogin : 'user/isLogin' })
-  }
+    ...mapGetters({ isLogin: "user/isLogin" }),
+  },
 };
 </script>
 
@@ -100,7 +100,7 @@ export default {
   margin-left: 10px;
   font-family: "Racing Sans One", cursive;
   font-size: 30px;
-  color:black;
+  color: black;
 }
 
 .icon {
