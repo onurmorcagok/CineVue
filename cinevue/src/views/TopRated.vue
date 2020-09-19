@@ -2,6 +2,7 @@
   <div class="top-rated">
     <div class="container my-5">
       <h2 class="title text-white">Top Rated</h2>
+      <hr>
     </div>
     <div class="movie-list container d-flex flex-wrap">
       <appMovieCards v-for="movie in movies" :key="movie.id" :movie="movie"></appMovieCards>

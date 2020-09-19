@@ -23,13 +23,13 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <router-link class="nav-link" to="/">
               <i class="fas fa-thumbs-up">
                 <span>Popular</span>
               </i>
               <span class="sr-only">(current)</span>
-           </router-link>
+            </router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/now-playing">
@@ -52,15 +52,16 @@
               </i>
             </router-link>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <router-link v-if="isLogin" class="nav-link" to="/watchlist">Watchlist</router-link>
           </li>
         </ul>
         <div class="login my-2 my-lg-0 mx-lg-5 mr-5">
-          <button 
-          class="btn btn-danger my-2 my-sm-0 text-white"
-          type="button"
-          @click="loginHandler">{{isLogin ? 'SIGN OUT': 'SIGN IN'}}</button>
+          <button
+            class="btn btn-danger my-2 my-sm-0 text-white"
+            type="button"
+            @click="loginHandler"
+          >{{isLogin ? 'SIGN OUT': 'SIGN IN'}}</button>
         </div>
       </div>
     </nav>
@@ -114,6 +115,7 @@ span {
 li {
   font-size: 20px;
 }
-
-
+li:hover{
+  color:#000;
+}
 </style>

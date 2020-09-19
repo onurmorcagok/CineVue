@@ -7,8 +7,9 @@
         <searchBar></searchBar> <!-- Search Component -->
       </div>
     </div>
-    <div class="container mt-2 mb-4">
+    <div class="container mb-5">
       <h2 class="title font-weight-bold text-white">Popular Movies</h2>
+      <hr>
     </div>
     <div class="movie-cards container d-flex flex-wrap">
       <movieCards v-for="movie in movies" :key="movie.id" :movie="movie"></movieCards> <!-- Movie Cards -->
@@ -36,5 +37,12 @@ export default {
 </script>
 
 <style>
+hr {
+  background-color:#fff;
+  width:800px;
+}
 
+h2{
+  margin-left:450px;
+}
 </style>
