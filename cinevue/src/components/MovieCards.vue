@@ -1,6 +1,6 @@
 <template>
     <div class="movie-card card mr-4 mb-4 justify-content-between">
-      <router-link :to="{name: 'MovieDetail', params: { id: movie.id}}" class="card-link">
+      <router-link :to="{name: 'MovieDetail', params: { id: movie.id }}" class="card-link">
         <appmovieImages :movie="movie"></appmovieImages>
         <div class="card-body">
           <div class="rank-container">
@@ -79,4 +79,5 @@ export default {
 .card-title {
   margin-top: -5px;
 }
+
 </style>

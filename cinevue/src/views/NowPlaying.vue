@@ -1,15 +1,30 @@
 <template>
-    <div>
-
+  <div class="now-playing">
+    <div class="container my-4">
+      <h2 class="title">Now Playing</h2>
     </div>
+    <div class="movie-list container d-flex flex-wrap">
+      <appMovieCards v-for="movie in movies" :key="movie.id" :movie="movie"></appMovieCards>
+    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import { mapGetters } from "vuex";
+import MovieCards from "../components/MovieCards";
+export default {
+  name: "NowPlaying",
+  components: {
+    appMovieCards: MovieCards,
+  },
+  computed: {
+    ...mapGetters({ movies: "movies/movies" }),
+  },
+  created() {
+    this.$store.dispatch("movies/SET_MOVIE", "now-playing");
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
 </style>

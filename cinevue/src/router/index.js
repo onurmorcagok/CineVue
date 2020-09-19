@@ -14,12 +14,12 @@ const routes = [
   },
   {
     path: "/now-playing",
-    name: "Now-Playing",
+    name: "NowPlaying",
     component: import("../views/NowPlaying.vue"),
   },
   {
     path: "/top-rated",
-    name: "Top-Rated",
+    name: "TopRated",
     component: import("../views/TopRated.vue"),
   },
   {
@@ -43,12 +43,12 @@ const routes = [
   },
   {
     path: "/sign-in",
-    name: "Sign-In",
+    name: "SignIn",
     component: import("../views/SignIn.vue"),
   },
   {
     path: "/watchList",
-    name: "Watch-List",
+    name: "WatchList",
     component: import("../views/WatchList.vue"),
   },
   {
@@ -58,7 +58,7 @@ const routes = [
   },
   {
     path: "/movie-detail/:movieID",
-    name: "Movie-Detail",
+    name: "MovieDetail",
     component: import("../views/MovieDetail.vue"),
   },
   {
