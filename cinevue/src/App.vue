@@ -1,13 +1,11 @@
 <template>
-<div id="app" class="container col-md-12">
+<div id="app">
   <appNavbar></appNavbar>
-  <body>
     <div class="mx-auto">
       <transition name="rout" mode="out-in">
-        <router-view></router-view>
+         <router-view></router-view>
       </transition>
     </div>
-  </body>
   <appFooter></appFooter>
 </div>
 </template>
@@ -20,7 +18,7 @@ export default {
   components: {
     appNavbar: Navbar,
     appFooter: Footer,
-  },
+  }
 };
 </script>
 

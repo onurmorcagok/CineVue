@@ -1,7 +1,7 @@
 <template>
   <div class="top-rated">
-    <div class="container my-4">
-      <h2 class="title">Top Rated</h2>
+    <div class="container my-5">
+      <h2 class="title text-white">Top Rated</h2>
     </div>
     <div class="movie-list container d-flex flex-wrap">
       <appMovieCards v-for="movie in movies" :key="movie.id" :movie="movie"></appMovieCards>
@@ -21,10 +21,13 @@ export default {
     ...mapGetters({ movies: "movies/movies" }),
   },
   created() {
-    this.$store.dispatch("movies/SET_MOVIE", "top-rated");
+    this.$store.dispatch("movies/SET_MOVIE", "top_rated");
   },
 };
 </script>
 
 <style scoped>
+.title{
+  margin-top:125px;
+}
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div class="now-playing">
-    <div class="container my-4">
-      <h2 class="title">Now Playing</h2>
+    <div class="container my-5">
+      <h2 class="title text-white">Now Playing</h2>
     </div>
-    <div class="movie-list container d-flex flex-wrap">
+    <div class="movie-cards container d-flex flex-wrap">
       <appMovieCards v-for="movie in movies" :key="movie.id" :movie="movie"></appMovieCards>
     </div>
   </div>
@@ -21,10 +21,13 @@ export default {
     ...mapGetters({ movies: "movies/movies" }),
   },
   created() {
-    this.$store.dispatch("movies/SET_MOVIE", "now-playing");
+    this.$store.dispatch("movies/SET_MOVIE", "now_playing");
   },
 };
 </script>
 
 <style scoped>
+.title{
+  margin-top:125px;
+}
 </style>

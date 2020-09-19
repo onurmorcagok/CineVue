@@ -15,17 +15,20 @@ const routes = [
   {
     path: "/now-playing",
     name: "NowPlaying",
-    component: import("../views/NowPlaying.vue"),
+    component: () =>
+      import("../views/NowPlaying.vue"),
   },
   {
     path: "/top-rated",
     name: "TopRated",
-    component: import("../views/TopRated.vue"),
+    component: () =>
+      import("../views/TopRated.vue"),
   },
   {
     path: "/upcoming",
     name: "Upcoming",
-    component: import("../views/Upcoming.vue"),
+    component: () =>
+      import("../views/Upcoming.vue"),
   },
   {
     path: "/register",

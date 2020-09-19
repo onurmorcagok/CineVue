@@ -1,7 +1,7 @@
 <template>
   <div class="upcoming">
-    <div class="container my-4">
-      <h2 class="title">Upcoming</h2>
+    <div class="container my-5">
+      <h2 class="title text-white">Upcoming</h2>
     </div>
     <div class="movie-list container d-flex flex-wrap">
       <appMovieCards v-for="movie in movies" :key="movie.id" :movie="movie"></appMovieCards>
@@ -27,4 +27,7 @@ export default {
 </script>
 
 <style scoped>
+.title{
+  margin-top:125px;
+}
 </style>

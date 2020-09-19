@@ -56,7 +56,7 @@
             <router-link v-if="isLogin" class="nav-link" to="/watchlist">Watchlist</router-link>
           </li>
         </ul>
-        <div class="login my-2 my-lg-0 mr-4">
+        <div class="login my-2 my-lg-0 mx-lg-5 mr-5">
           <button 
           class="btn btn-danger my-2 my-sm-0 text-white"
           type="button"
@@ -114,5 +114,6 @@ span {
 li {
   font-size: 20px;
 }
+
 
 </style>
