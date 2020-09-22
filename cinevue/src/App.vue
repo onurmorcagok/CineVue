@@ -1,13 +1,12 @@
 <template>
-<div id="app">
-  <appNavbar></appNavbar>
-    <div class="mx-auto">
-      <transition name="rout" mode="out-in">
-         <router-view></router-view>
-      </transition>
-    </div>
-  <appFooter></appFooter>
-</div>
+  <div id="app">
+    <appNavbar></appNavbar>
+    <router-view name="navbar-top"></router-view>
+    <transition name="slide" mode="out-in">
+      <router-view></router-view>
+    </transition>
+    <appFooter></appFooter>
+  </div>
 </template>
 
 <script>
@@ -18,7 +17,7 @@ export default {
   components: {
     appNavbar: Navbar,
     appFooter: Footer,
-  }
+  },
 };
 </script>
 
@@ -28,18 +27,43 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 body {
   background-image: url("https://i.pinimg.com/originals/0b/97/b2/0b97b293ae7b54d6adc4b9332de9e484.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-.rout-enter,
-.rout-leave-active {
+
+.slide-enter {
   opacity: 0;
-  transform: translate(50px);
 }
-.rout-enter-active,
-.rout-leave {
-  transition: all 0.5s;
+.slide-enter-active {
+  animation: slide-in 1s ease-out forwards;
+  transition: opacity 0.5s;
+}
+.slide-leave {
+}
+.slide-leave-active {
+  animation: slide-out 1s ease-out forwards;
+  transition: opacity 1s;
+  opacity: 0;
+  position: relative;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes slide-out {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(20px);
+  }
 }
 </style>
