@@ -19,11 +19,20 @@ const movies = {
     SET_MOVIE_DETAIL(state, payload) {
       state.movieDetail = payload;
     },
-    SET_TRAILER(state, payload) {
+    SET_TRAILER_STATUS(state, payload) {
       state.trailerShowing = payload;
     },
   },
   actions: {
+    SEARCH_MOVIE({ commit }, payload) {
+      httpService
+        .get(`${API.SEARCH}${API.MOVIE}`, {
+          params: { api_key: API.API_KEY, query: payload },
+        })
+        .then((response) => {
+          commit("SET_MOVIE", response.data.results);
+        });
+    },
     SET_MOVIE({ commit }, payload) {
       httpService
         .get(`${API.MOVIE}${payload}`, { params: { api_key: API.API_KEY } })
@@ -37,7 +46,7 @@ const movies = {
           params: { api_key: API.API_KEY },
         })
         .then((response) => {
-          commit("SET_MOVIE_CAST", response.data.cast);
+          commit("SET_CAST", response.data.cast);
         });
     },
     SET_MOVIE_DETAIL({ commit }, payload) {
@@ -49,8 +58,8 @@ const movies = {
           commit("SET_MOVIE_DETAIL", response.data);
         });
     },
-    SET_TRAILER({ commit }, payload) {
-      commit("CHANGE_TRAILER_STATUS", payload);
+    SET_TRAILER_STATUS({ commit }, payload) {
+      commit("SET_TRAILER_STATUS", payload);
     },
   },
   getters: {

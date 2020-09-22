@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <appNavbar></appNavbar>
-    <router-view name="navbar-top"></router-view>
     <transition name="slide" mode="out-in">
       <router-view></router-view>
     </transition>

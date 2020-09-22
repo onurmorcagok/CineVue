@@ -1,15 +1,170 @@
 <template>
-    <div>
-
+  <div class="movie-detail mt-5">
+    <div
+      class="text-white"
+      :style="`background-image: url(${API.IMAGE_URL}${movieDetail.backdrop_path});
+           background-repeat:no-repeat;
+           background-size:cover;
+           background-position:center;`"
+    >
+      <div class="body">
+        <div class="body-container d-flex py-4">
+          <div class="body-poster mr-5">
+            <MovieImages :movie="movieDetail"></MovieImages>
+          </div>
+          <div class="body-content">
+            <h2 class="font-weight-bold">{{ movieDetail.title }}</h2>
+            <div class="list d-flex mt-3">
+              <li class="mr-4">
+                <small class="mr-2">{{ movieDetail.release_date }}</small>
+              </li>
+              <li class="mr-4">
+                <small
+                  class="card-text- mr-2"
+                  v-for="(genre,index) in movieDetail.genres"
+                  :key="index"
+                >{{ genre.name }}</small>
+              </li>
+              <li>
+                <small>{{ movieDetail.runtime }} minute</small>
+              </li>
+            </div>
+            <div class="select d-flex align-items-center mt-4">
+              <div class="rank-container d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                  <span class="rank">{{ movieDetail.vote_average }}</span>
+                </div>
+                <div class="ml-4">
+                  <small class="font-weight-bold">IMDb Rank</small>
+                </div>
+              </div>
+              <div class="buttons ml-5 d-flex align-items-center">
+                <a @click="showTrailer" class="play ml-4 text-white">
+                  <svg class="icon icon-play3">
+                    <use xlink:href="#icon-play3" />
+                  </svg>
+                  <symbol id="icon-play3" viewBox="0 0 32 32">
+                    <path d="M6 4l20 12-20 12z"></path>
+                  </symbol>Play Trailer
+                </a>
+                <FavoriteButton :movie="movieDetail" class="ml-4" v-if="isLogin"></FavoriteButton>
+              </div>
+            </div>
+            <h4 class="font-weight-light font-italic mt-4">{{ movieDetail.tagline }}</h4>
+            <h4 class="font-weight-bold mt-4">Summary</h4>
+            <p class="card-text">{{ movieDetail.overview }}</p>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="cast-container mt-5">
+      <h2 class="cast-title text-center">Cast</h2>
+      <div class="cast-list d-flex flex-wrap mt-3 justify-content-center">
+        <Cast v-for="actor in cast" :key="actor.id" :actor="actor"></Cast>
+      </div>
+    </div>
+    <Trailer :movie="movieDetail" v-if="trailerShowing"></Trailer>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import { mapGetters } from "vuex";
+import API from "../api/api";
+import MovieImages from "../components/MovieImages";
+import FavoriteButton from "../components/FavoriteButton";
+import Cast from "../components/Cast";
+import Trailer from "../components/Trailer";
+export default {
+  name: "MovieDetail",
+  data() {
+    return {
+      API,
+    };
+  },
+  components: {
+    MovieImages,
+    FavoriteButton,
+    Cast,
+    Trailer,
+  },
+  methods: {
+    showTrailer() {
+      this.$store.dispatch("movies/CHANGE_TRAILER_STATUS", true);
+    },
+  },
+  computed: {
+    ...mapGetters({
+      movieDetail: "movies/movieDetail",
+      cast: "movies/cast",
+      trailerShowing: "movies/trailerShowing",
+      isLogin: "user/isLogin",
+    }),
+  },
+  created() {
+    this.$store.dispatch("movies/SET_MOVIE_DETAIL", this.$route.params.id);
+    this.$store.dispatch("movies/SET_CAST", this.$route.params.id);
+  },
+};
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.body {
+  opacity: 0.9;
+  padding: 3rem;
+}
 
+.body-poster {
+    max-width: 13rem;
+    min-width: 7rem;
+}
+
+.rank-container {
+  background-color: rgb(13, 3, 61);
+  border: 2px solid rgb(241, 234, 131);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  padding-left: 10px;
+}
+.play:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+.icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+@media (max-width: 575.98px) {
+  .body {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .body-container {
+    flex-direction: column;
+  }
+  .body-content {
+    min-width: 100%;
+    margin: 2em 0;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  h5,
+  p,
+  a {
+    font-size: 0.8rem;
+  }
+  .list {
+    flex-direction: column;
+  }
+  .cast-list {
+    justify-content: center;
+  }
+}
 </style>

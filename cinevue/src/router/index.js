@@ -33,7 +33,8 @@ const routes = [
   {
     path: "/register",
     name: "Register",
-    component: import("../views/Register.vue"),
+    component: () =>
+      import("../views/Register.vue"),
 
     beforeSign: (next) => {
       const isLogin = store.getters["users/isLogin"];
@@ -47,22 +48,26 @@ const routes = [
   {
     path: "/sign-in",
     name: "SignIn",
-    component: import("../views/SignIn.vue"),
+    component: () =>
+      import("../views/SignIn.vue"),
   },
   {
     path: "/watchList",
     name: "WatchList",
-    component: import("../views/WatchList.vue"),
+    component: () =>
+      import("../views/WatchList.vue"),
   },
   {
     path: "/search/:movieName",
     name: "Search",
-    component: import("../views/SearchMovies.vue"),
+    component: () =>
+      import("../views/SearchMovies.vue"),
   },
   {
     path: "/movie-detail/:movieID",
     name: "MovieDetail",
-    component: import("../views/MovieDetail.vue"),
+    component: () =>
+      import("../views/MovieDetail.vue"),
   },
   {
     path: "*",

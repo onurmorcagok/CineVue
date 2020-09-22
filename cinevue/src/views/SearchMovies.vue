@@ -29,4 +29,12 @@ export default {
 </script>
 
 <style>
+@media (max-width: 575.98px) {
+  .movie-list {
+    justify-content: center;
+  }
+  .title {
+    text-align: center;
+  }
+}
 </style>
