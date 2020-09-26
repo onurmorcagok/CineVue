@@ -21,8 +21,12 @@
                   <span class="rank">{{ movieDetail.vote_average }}</span>
                 </div>
                 <div class="ml-4">
-                  <img src="https://www.munuya.com/wp-content/uploads/2019/12/imdb-logo.png" class="img-size" >
+                  <img
+                    src="https://www.munuya.com/wp-content/uploads/2019/12/imdb-logo.png"
+                    class="img-size"
+                  />
                 </div>
+                <small class="font-weight-bold">Rank</small>
               </div>
               <div class="buttons ml-5 d-flex align-items-center">
                 <!-- <a @click="showTrailer" class="play ml-4 text-white">
@@ -41,11 +45,12 @@
                       >
                     </li>
                     <li class="ml-0 mr-4">
+                      <small>Genres: </small>
                       <small
                         class="card-text- mr-2"
                         v-for="(genre, index) in movieDetail.genres"
                         :key="index"
-                        >Genres: {{ genre.name }}</small
+                        >{{ genre.name }}</small
                       >
                     </li>
                     <li>
@@ -163,7 +168,11 @@ li:hover {
 }
 
 .img-size {
-  width:50px;
+  width: 50px;
+}
+
+.list {
+  margin-left:20px;
 }
 
 @media (max-width: 575.98px) {
