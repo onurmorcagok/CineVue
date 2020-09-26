@@ -15,11 +15,11 @@
           <div class="body-content">
             <h2 class="font-weight-bold ml-0">{{ movieDetail.title }}</h2>
             <div class="list d-flex mt-3">
-              <ul class="ul" type="none">
-              <li class="mr-4">
-                <small class="mr-2">{{ movieDetail.release_date }}</small>
+              <ul class="ml-0" type="none">
+              <li class="ml-0">
+                <small class="ml-0 mr-4">{{ movieDetail.release_date }}</small>
               </li>
-              <li class="mr-4">
+              <li class="ml-0 mr-4">
                 <small
                   class="card-text- mr-2"
                   v-for="(genre, index) in movieDetail.genres"
@@ -27,7 +27,7 @@
                   >{{ genre.name }}</small
                 >
               </li>
-              <li class="mr-4">
+              <li>
                 <small>{{ movieDetail.runtime }} minute</small>
               </li>
               </ul>
