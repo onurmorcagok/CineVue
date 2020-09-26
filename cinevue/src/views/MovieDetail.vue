@@ -168,7 +168,7 @@ li:hover {
 }
 
 .img-size {
-  width: 50px;
+  width: 40px;
 }
 
 .list {
