@@ -14,24 +14,7 @@
           </div>
           <div class="body-content">
             <h2 class="font-weight-bold ml-0">{{ movieDetail.title }}</h2>
-            <div class="list d-flex mt-3">
-              <ul class="ml-0" type="none">
-              <li class="ml-0">
-                <small class="ml-0 mr-4">{{ movieDetail.release_date }}</small>
-              </li>
-              <li class="ml-0 mr-4">
-                <small
-                  class="card-text- mr-2"
-                  v-for="(genre, index) in movieDetail.genres"
-                  :key="index"
-                  >{{ genre.name }}</small
-                >
-              </li>
-              <li>
-                <small>{{ movieDetail.runtime }} minute</small>
-              </li>
-              </ul>
-            </div>
+
             <div class="select d-flex align-items-center mt-4">
               <div class="rank-container d-flex align-items-center">
                 <div class="d-flex align-items-center">
@@ -42,14 +25,34 @@
                 </div>
               </div>
               <div class="buttons ml-5 d-flex align-items-center">
-                <a @click="showTrailer" class="play ml-4 text-white">
+                <!-- <a @click="showTrailer" class="play ml-4 text-white">
                   <svg class="icon icon-play3">
                     <use xlink:href="#icon-play3" />
                   </svg>
                   <symbol id="icon-play3" viewBox="0 0 32 32">
                     <path d="M6 4l20 12-20 12z"></path> </symbol
                   >Play Trailer
-                </a>
+                </a> -->
+                <div class="list d-flex mt-3">
+                  <ul class="ml-0" type="none">
+                    <li class="ml-0">
+                      <small class="ml-0 mr-4"
+                        >Release Date: {{ movieDetail.release_date }}</small
+                      >
+                    </li>
+                    <li class="ml-0 mr-4">
+                      <small
+                        class="card-text- mr-2"
+                        v-for="(genre, index) in movieDetail.genres"
+                        :key="index"
+                        >Genres: {{ genre.name }}</small
+                      >
+                    </li>
+                    <li>
+                      <small>Duration: {{ movieDetail.runtime }} minute</small>
+                    </li>
+                  </ul>
+                </div>
                 <FavoriteButton
                   :movie="movieDetail"
                   class="ml-4"
@@ -118,7 +121,7 @@ export default {
 
 <style scoped>
 .body {
-  background-color:#000;
+  background-color: #000;
   opacity: 0.9;
   padding: 3rem;
 }
@@ -129,8 +132,8 @@ export default {
 }
 
 .rank-container {
-  background-color:#000;
-  border: 2px solid #FFF;
+  background-color: #000;
+  border: 2px solid #fff;
   color: rgb(255, 193, 7);
   border-radius: 50%;
   width: 48px;
@@ -152,7 +155,11 @@ export default {
 }
 
 li {
-  display:inline-block;
+  display: inline-block;
+}
+
+li:hover {
+  color: white;
 }
 
 @media (max-width: 575.98px) {
@@ -169,7 +176,7 @@ li {
   }
   h2 {
     font-size: 1rem;
-    margin-left:0px;
+    margin-left: 0px;
   }
   h5,
   p,
