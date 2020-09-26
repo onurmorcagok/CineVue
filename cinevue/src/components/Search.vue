@@ -2,7 +2,7 @@
   <div class="search">
     <input
       type="text"
-      class="search-box search-bar form-control p-4 my-4"
+      class="search-box form-control p-4 my-4"
       placeholder="Search by movie title"
       v-model="searchMovie"
     />
@@ -20,7 +20,7 @@ export default {
   },
   watch: {
     searchMovie: debounce(function (newVal) {
-      this.$store.dispatch("movies/search_movie", newVal);
+      this.$store.dispatch("movies/SEARCH_MOVIE", newVal);
       this.$router.push({ name: "Search", params: { name: newVal } });
     }, 500),
   },
