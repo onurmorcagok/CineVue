@@ -21,7 +21,7 @@
                   <span class="rank">{{ movieDetail.vote_average }}</span>
                 </div>
                 <div class="ml-4">
-                  <small class="font-weight-bold">IMDb Rank</small>
+                  <img src="https://www.munuya.com/wp-content/uploads/2019/12/imdb-logo.png" class="img-size" >
                 </div>
               </div>
               <div class="buttons ml-5 d-flex align-items-center">
@@ -160,6 +160,10 @@ li {
 
 li:hover {
   color: white;
+}
+
+.img-size {
+  width:50px;
 }
 
 @media (max-width: 575.98px) {
