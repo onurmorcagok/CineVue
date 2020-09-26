@@ -31,7 +31,6 @@ export default {
 </script>
 
 <style scoped>
-
 .cast-card {
   width: 10rem;
   border-radius: 8px;

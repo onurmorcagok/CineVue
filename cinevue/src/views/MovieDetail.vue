@@ -1,11 +1,11 @@
 <template>
   <div class="movie-detail mt-5">
     <div
-      class="text-white"
+      class="backdrop text-white"
       :style="`background-image: url(${API.IMAGE_URL}${movieDetail.backdrop_path});
            background-repeat:no-repeat;
            background-size:cover;
-           background-position:center;`"
+           background-position:center center;`"
     >
       <div class="body">
         <div class="body-container d-flex py-4">
@@ -13,21 +13,24 @@
             <MovieImages :movie="movieDetail"></MovieImages>
           </div>
           <div class="body-content">
-            <h2 class="font-weight-bold">{{ movieDetail.title }}</h2>
+            <h2 class="font-weight-bold ml-0">{{ movieDetail.title }}</h2>
             <div class="list d-flex mt-3">
+              <ul class="ul" type="none">
               <li class="mr-4">
                 <small class="mr-2">{{ movieDetail.release_date }}</small>
               </li>
               <li class="mr-4">
                 <small
                   class="card-text- mr-2"
-                  v-for="(genre,index) in movieDetail.genres"
+                  v-for="(genre, index) in movieDetail.genres"
                   :key="index"
-                >{{ genre.name }}</small>
+                  >{{ genre.name }}</small
+                >
               </li>
-              <li>
+              <li class="mr-4">
                 <small>{{ movieDetail.runtime }} minute</small>
               </li>
+              </ul>
             </div>
             <div class="select d-flex align-items-center mt-4">
               <div class="rank-container d-flex align-items-center">
@@ -44,13 +47,19 @@
                     <use xlink:href="#icon-play3" />
                   </svg>
                   <symbol id="icon-play3" viewBox="0 0 32 32">
-                    <path d="M6 4l20 12-20 12z"></path>
-                  </symbol>Play Trailer
+                    <path d="M6 4l20 12-20 12z"></path> </symbol
+                  >Play Trailer
                 </a>
-                <FavoriteButton :movie="movieDetail" class="ml-4" v-if="isLogin"></FavoriteButton>
+                <FavoriteButton
+                  :movie="movieDetail"
+                  class="ml-4"
+                  v-if="isLogin"
+                ></FavoriteButton>
               </div>
             </div>
-            <h4 class="font-weight-light font-italic mt-4">{{ movieDetail.tagline }}</h4>
+            <h4 class="font-weight-light font-italic mt-4">
+              {{ movieDetail.tagline }}
+            </h4>
             <h4 class="font-weight-bold mt-4">Summary</h4>
             <p class="card-text">{{ movieDetail.overview }}</p>
           </div>
@@ -58,7 +67,7 @@
       </div>
     </div>
     <div class="cast-container mt-5">
-      <h2 class="cast-title text-center">Cast</h2>
+      <h2 class="cast-title text-center ml-0">Cast</h2>
       <div class="cast-list d-flex flex-wrap mt-3 justify-content-center">
         <Cast v-for="actor in cast" :key="actor.id" :actor="actor"></Cast>
       </div>
@@ -109,18 +118,20 @@ export default {
 
 <style scoped>
 .body {
+  background-color:#000;
   opacity: 0.9;
   padding: 3rem;
 }
 
 .body-poster {
-    max-width: 13rem;
-    min-width: 7rem;
+  max-width: 13rem;
+  min-width: 32rem;
 }
 
 .rank-container {
-  background-color: rgb(13, 3, 61);
-  border: 2px solid rgb(241, 234, 131);
+  background-color:#000;
+  border: 2px solid #FFF;
+  color: rgb(255, 193, 7);
   border-radius: 50%;
   width: 48px;
   height: 48px;
@@ -140,6 +151,10 @@ export default {
   fill: currentColor;
 }
 
+li {
+  display:inline-block;
+}
+
 @media (max-width: 575.98px) {
   .body {
     padding-right: 0;
@@ -154,6 +169,7 @@ export default {
   }
   h2 {
     font-size: 1rem;
+    margin-left:0px;
   }
   h5,
   p,
