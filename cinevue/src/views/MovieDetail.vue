@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="cast-container mt-5">
-      <h2 class="cast-title text-center ml-0">Cast</h2>
+      <h2 class="cast-title text-center text-white ml-0">Cast</h2>
       <div class="cast-list d-flex flex-wrap mt-3 justify-content-center">
         <Cast v-for="actor in cast" :key="actor.id" :actor="actor"></Cast>
       </div>
