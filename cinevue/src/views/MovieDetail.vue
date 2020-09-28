@@ -172,13 +172,18 @@ li:hover {
 }
 
 .list {
-  margin-left:20px;
+  margin-left: 20px;
 }
 
 @media (max-width: 575.98px) {
   .body {
     padding-right: 0;
     padding-left: 0;
+  }
+  .body-poster {
+    max-width: 13rem;
+    min-width: 22rem;
+    padding-left:4em;
   }
   .body-container {
     flex-direction: column;

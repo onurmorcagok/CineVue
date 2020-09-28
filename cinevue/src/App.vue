@@ -40,8 +40,6 @@ body {
   animation: slide-in 1s ease-out forwards;
   transition: opacity 0.5s;
 }
-.slide-leave {
-}
 .slide-leave-active {
   animation: slide-out 1s ease-out forwards;
   transition: opacity 1s;
