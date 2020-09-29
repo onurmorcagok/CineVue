@@ -58,13 +58,13 @@ const routes = [
       import("../views/WatchList.vue"),
   },
   {
-    path: "/search/:movieName",
+    path: "/search/:name",
     name: "Search",
     component: () =>
       import("../views/SearchMovies.vue"),
   },
   {
-    path: "/movie-detail/:movieID",
+    path: "/movie-detail/:id",
     name: "MovieDetail",
     component: () =>
       import("../views/MovieDetail.vue"),
