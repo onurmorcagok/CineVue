@@ -3,7 +3,7 @@
     <div class="container my-5">
       <h2 class="title text-white">Upcoming</h2>
     </div>
-    <div class="movie-list container d-flex flex-wrap">
+    <div class="movie-cards container d-flex flex-wrap">
       <appMovieCards
         v-for="movie in movies"
         :key="movie.id"
@@ -33,5 +33,14 @@ export default {
 <style scoped>
 .title {
   text-align: center;
+}
+
+@media (max-width: 575.98px) {
+  .movie-cards {
+    margin-left: 4.5em;
+  }
+  .title {
+    text-align: center;
+  }
 }
 </style>

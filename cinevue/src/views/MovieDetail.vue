@@ -74,7 +74,7 @@
       </div>
     </div>
     <div class="cast-container mt-5">
-      <h2 class="cast-title text-center text-white my-3">Cast</h2>
+      <h3 class="cast-title text-center text-white my-3">Cast</h3>
       <div class="cast-list d-flex flex-wrap mt-3 justify-content-center">
         <Cast v-for="actor in cast" :key="actor.id" :actor="actor"></Cast>
       </div>
@@ -196,14 +196,17 @@ li:hover {
     font-size: 1rem;
     margin-left: 5em;
   }
+  h3 {
+    margin-left:0em;
+  }
   h5,
   p,
   a {
     font-size: 0.8rem;
   }
   .tagline {
-    font-size:0.8em;
-    margin-left:4em;
+    font-size:0.7em;
+    margin-left:5.5em;
   }
   .list {
     flex-direction: column;

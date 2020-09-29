@@ -46,12 +46,14 @@ export default {
   .header-content {
     padding-left: 3rem;
   }
-  .header-title,
-  .header-description {
-    font-size: 1.1rem;
+  .header-title{
+    font-size:1.5rem;
   }
-  .movie-list {
-    justify-content: center;
+  .header-subtitle {
+    font-size: 1rem;
+  }
+  .movie-cards {
+    margin-left:4.5em;
   }
   .title {
     text-align: center;
