@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <appNavbar></appNavbar>
+    <div class="mx-auto">
     <transition name="slide" mode="out-in">
       <router-view></router-view>
     </transition>
+    </div>
     <appFooter></appFooter>
   </div>
 </template>
