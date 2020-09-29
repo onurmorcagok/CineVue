@@ -1,25 +1,30 @@
 <template>
   <div class="movie-card card mr-4 mb-4 justify-content-between">
-    <router-link :to="{ name: 'MovieDetail', params: { id: movie.id }}" class="card-link">
+    <router-link
+      :to="{ name: 'MovieDetail', params: { id: movie.id } }"
+      class="card-link"
+    >
       <appmovieImages :movie="movie"></appmovieImages>
       <div class="card-body">
         <div class="rank-container">
-          <span class="rank">{{movie.vote_average}}</span>
+          <span class="rank">{{ movie.vote_average }}</span>
         </div>
         <h6 class="card-title text-dark">
-          <b>{{movie.title}}</b>
+          <b>{{ movie.title }}</b>
         </h6>
         <small class="card-average text-dark">
           <b>Release Date:</b>
-          {{movie.release_date}}
+          {{ movie.release_date }}
         </small>
       </div>
     </router-link>
     <button
-      v-if="$route.path ==='/watchlist'"
+      v-if="$route.path === '/watchlist'"
       @click="removeMovie"
       class="btn btn-sm text-white btn-block"
-    >Remove</button>
+    >
+      Remove
+    </button>
   </div>
 </template>
 
@@ -83,5 +88,14 @@ export default {
 }
 .card-title {
   margin-top: -5px;
+}
+
+@media (max-width: 575.98px) {
+  .rank {
+    color: rgb(255, 193, 7);
+    font-weight: bold;
+    font-size: 0.7em;
+    margin-right: 4px;
+  }
 }
 </style>
