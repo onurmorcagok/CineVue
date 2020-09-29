@@ -5,7 +5,7 @@
       :style="`background-image: url(${API.IMAGE_URL}${movieDetail.backdrop_path});
            background-repeat:no-repeat;
            background-size:cover;
-           background-position:center center;`"
+           background-position:center;`"
     >
       <div class="body">
         <div class="body-container d-flex py-4">
@@ -13,21 +13,40 @@
             <MovieImages :movie="movieDetail"></MovieImages>
           </div>
           <div class="body-content">
-            <h2 class="font-weight-bold ml-0">{{ movieDetail.title }}</h2>
-
-            <div class="select d-flex align-items-center mt-4">
-              <div class="rank-container d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                  <span class="rank">{{ movieDetail.vote_average }}</span>
-                </div>
-                <div class="ml-4">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png"
-                    class="img-size"
-                  />
-                </div>
-                <small class="font-weight-bold ml-1">Rank</small>
+            <h2 class="font-weight-bold">{{ movieDetail.title }}</h2>
+            <br />
+            <div class="rank-container d-flex align-items-center">
+              <div class="d-flex align-items-center">
+                <span class="rank">{{ movieDetail.vote_average }}</span>
               </div>
+              <div class="ml-4">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png"
+                  class="img-size"
+                />
+              </div>
+              <small class="font-weight-bold ml-1">Rank</small>
+            </div>
+            <div class="list d-flex mt-3 ml-0">
+              <li class="list-item mr-4">
+                <small class="mr-2"
+                  >Release Date: {{ movieDetail.release_date }}</small
+                >
+              </li>
+              <li class="list-item mr-4">
+                <small>Genres: </small>
+                <small
+                  class="card-text mr-2"
+                  v-for="(genre, index) in movieDetail.genres"
+                  :key="index"
+                  >{{ genre.name }}</small
+                >
+              </li>
+              <li class="list-item">
+                <small>Duration: {{ movieDetail.runtime }} minute</small>
+              </li>
+            </div>
+            <div class="select d-flex align-items-center mt-4">
               <div class="buttons ml-5 d-flex align-items-center">
                 <!-- <a @click="showTrailer" class="play ml-4 text-white">
                   <svg class="icon icon-play3">
@@ -37,27 +56,7 @@
                     <path d="M6 4l20 12-20 12z"></path> </symbol
                   >Play Trailer
                 </a> -->
-                <div class="list d-flex mt-3">
-                  <ul class="ml-0" type="none">
-                    <li class="ml-2">
-                      <small class="ml-0 mr-4"
-                        >Release Date: {{ movieDetail.release_date }}</small
-                      >
-                    </li>
-                    <li class="ml-0 mr-4">
-                      <small>Genres: </small>
-                      <small
-                        class="card-text- mr-2"
-                        v-for="(genre, index) in movieDetail.genres"
-                        :key="index"
-                        >{{ genre.name }}</small
-                      >
-                    </li>
-                    <li>
-                      <small>Duration: {{ movieDetail.runtime }} minute</small>
-                    </li>
-                  </ul>
-                </div>
+
                 <FavoriteButton
                   :movie="movieDetail"
                   class="ml-4"
@@ -65,17 +64,17 @@
                 ></FavoriteButton>
               </div>
             </div>
-            <h4 class="font-weight-light font-italic mt-4">
+            <h4 class="tagline font-weight-light font-italic">
               {{ movieDetail.tagline }}
             </h4>
-            <h4 class="font-weight-bold mt-4">Summary</h4>
+            <h4 class="summary font-weight-bold mt-4">Summary</h4>
             <p class="card-text">{{ movieDetail.overview }}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="cast-container mt-5">
-      <h2 class="cast-title text-center text-white ml-0">Cast</h2>
+      <h2 class="cast-title text-center text-white my-3">Cast</h2>
       <div class="cast-list d-flex flex-wrap mt-3 justify-content-center">
         <Cast v-for="actor in cast" :key="actor.id" :actor="actor"></Cast>
       </div>
@@ -125,7 +124,6 @@ export default {
 </script>
 
 <style scoped>
-
 .body {
   background-color: #000;
   opacity: 0.9;
@@ -134,7 +132,7 @@ export default {
 
 .body-poster {
   max-width: 13rem;
-  min-width: 30rem;
+  min-width: 13rem;
 }
 
 .rank-container {
@@ -182,9 +180,7 @@ li:hover {
     padding-left: 0;
   }
   .body-poster {
-    max-width: 13rem;
-    min-width: 22rem;
-    padding-left:4em;
+    margin-left: 5em;
   }
   .body-container {
     flex-direction: column;
@@ -193,17 +189,35 @@ li:hover {
     min-width: 100%;
     margin: 2em 0;
   }
+  .rank-container {
+    margin-left: 5em;
+  }
   h2 {
     font-size: 1rem;
-    margin-left: 0px;
+    margin-left: 5em;
   }
   h5,
   p,
   a {
     font-size: 0.8rem;
   }
+  .tagline {
+    font-size:0.8em;
+    margin-left:4em;
+  }
   .list {
     flex-direction: column;
+    margin-left: 5em;
+  }
+  .list-item {
+    margin-left: 4em;
+  }
+  .summary {
+    margin-left: 5.5em;
+  }
+  .card-text {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
   }
   .cast-list {
     justify-content: center;

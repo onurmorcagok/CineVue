@@ -36,7 +36,25 @@ export default {
 </script>
 
 <style scoped>
+
 .title {
   text-align: center;
+}
+
+
+@media (max-width: 575.98px) {
+  .header-content {
+    padding-left: 3rem;
+  }
+  .header-title,
+  .header-description {
+    font-size: 1.1rem;
+  }
+  .movie-list {
+    justify-content: center;
+  }
+  .title {
+    text-align: center;
+  }
 }
 </style>
