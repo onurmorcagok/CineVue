@@ -2,10 +2,13 @@
   <div class="now-playing">
     <div class="container my-5">
       <h2 class="title text-white">Now Playing</h2>
-      <hr>
     </div>
-    <div class="movie-cards container d-flex flex-wrap">
-      <appMovieCards v-for="movie in movies" :key="movie.id" :movie="movie"></appMovieCards>
+    <div class="movie-list container d-flex flex-wrap">
+      <appMovieCards
+        v-for="movie in movies"
+        :key="movie.id"
+        :movie="movie"
+      ></appMovieCards>
     </div>
   </div>
 </template>
@@ -28,7 +31,7 @@ export default {
 </script>
 
 <style scoped>
-.title{
-  margin-top:125px;
+.title {
+  text-align: center;
 }
 </style>

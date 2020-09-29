@@ -33,9 +33,9 @@ export default {
 <style scoped>
 .cast-card {
   width: 10rem;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0);
 }
 
 @media (max-width: 575.98px) {

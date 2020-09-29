@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <div class="container my-3 pr-4">
+    <div class="container my-5 pr-4">
       <div class="search-component mb-4">
         <Search></Search>
       </div>
@@ -33,9 +33,11 @@ export default {
 </script>
 
 <style>
-.search-component {
-  margin-top: 150px;
+
+.title{
+  text-align: center;
 }
+
 @media (max-width: 575.98px) {
   .movie-list {
     justify-content: center;

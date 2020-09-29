@@ -2,10 +2,13 @@
   <div class="top-rated">
     <div class="container my-5">
       <h2 class="title text-white">Top Rated</h2>
-      <hr>
     </div>
     <div class="movie-list container d-flex flex-wrap">
-      <appMovieCards v-for="movie in movies" :key="movie.id" :movie="movie"></appMovieCards>
+      <appMovieCards
+        v-for="movie in movies"
+        :key="movie.id"
+        :movie="movie"
+      ></appMovieCards>
     </div>
   </div>
 </template>
@@ -28,7 +31,7 @@ export default {
 </script>
 
 <style scoped>
-.title{
-  margin-top:125px;
+.title {
+  text-align: center;
 }
 </style>

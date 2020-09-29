@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-detail mt-5">
+  <div class="movie-detail">
     <div
       class="backdrop text-white"
       :style="`background-image: url(${API.IMAGE_URL}${movieDetail.backdrop_path});
@@ -22,11 +22,11 @@
                 </div>
                 <div class="ml-4">
                   <img
-                    src="https://www.munuya.com/wp-content/uploads/2019/12/imdb-logo.png"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png"
                     class="img-size"
                   />
                 </div>
-                <small class="font-weight-bold">Rank</small>
+                <small class="font-weight-bold ml-1">Rank</small>
               </div>
               <div class="buttons ml-5 d-flex align-items-center">
                 <!-- <a @click="showTrailer" class="play ml-4 text-white">
@@ -39,7 +39,7 @@
                 </a> -->
                 <div class="list d-flex mt-3">
                   <ul class="ml-0" type="none">
-                    <li class="ml-0">
+                    <li class="ml-2">
                       <small class="ml-0 mr-4"
                         >Release Date: {{ movieDetail.release_date }}</small
                       >
@@ -125,6 +125,7 @@ export default {
 </script>
 
 <style scoped>
+
 .body {
   background-color: #000;
   opacity: 0.9;
@@ -133,7 +134,7 @@ export default {
 
 .body-poster {
   max-width: 13rem;
-  min-width: 32rem;
+  min-width: 30rem;
 }
 
 .rank-container {
@@ -168,7 +169,7 @@ li:hover {
 }
 
 .img-size {
-  width: 40px;
+  width: 50px;
 }
 
 .list {
