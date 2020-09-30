@@ -62,7 +62,7 @@ export default {
   }
   .movie-cards {
     justify-content: center;
-    /* margin-left: 2.5em; */
+    margin-left: 0.5em;
   }
   .title {
     text-align: center;
