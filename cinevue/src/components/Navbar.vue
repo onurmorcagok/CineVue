@@ -53,15 +53,15 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link v-if="isLogin" class="nav-link" to="/watchlist">Watchlist</router-link>
+            <router-link v-if="isSignIn" class="nav-link" to="/favorite-movies">My Favorites</router-link>
           </li>
         </ul>
-        <div class="login my-2 my-lg-0 mx-lg-5 mr-5">
+        <div class="sign-in my-2 my-lg-0 mx-lg-5 mr-5">
           <button
             class="btn btn-danger my-2 my-sm-0 text-white"
             type="button"
-            @click="loginHandler"
-          >{{isSignIn ? 'SIGN OUT': 'SIGN IN'}}</button>
+            @click="signHandler"
+          >{{ isSignIn ? 'SIGN OUT': 'SIGN IN' }}</button>
         </div>
       </div>
     </nav>
@@ -78,16 +78,16 @@ export default {
     };
   },
   methods: {
-    loginHandler() {
+    signHandler() {
       if (this.isSignIn) {
-        this.$store.dispatch("user/sign-out", false);
+        this.$store.dispatch("user/SIGN_OUT", false);
       } else {
         this.$router.push("/sign-in");
       }
     },
   },
   computed: {
-    ...mapGetters({ isLogin: "user/isSignIn" }),
+    ...mapGetters({ isSignIn: "user/isSignIn" }),
   },
 };
 </script>

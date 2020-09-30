@@ -37,8 +37,8 @@ const routes = [
       import("../views/Register.vue"),
 
     beforeSign: (next) => {
-      const isLogin = store.getters["users/isLogin"];
-      if (isLogin) {
+      const isSignIn = store.getters["user/isSignIn"];
+      if (isSignIn) {
         next("/");
       } else {
         next();
@@ -52,10 +52,10 @@ const routes = [
       import("../views/SignIn.vue"),
   },
   {
-    path: "/watchList",
-    name: "WatchList",
+    path: "/favorite-movies",
+    name: "FavoriteMovies",
     component: () =>
-      import("../views/WatchList.vue"),
+      import("../views/FavoriteMovies.vue"),
   },
   {
     path: "/search/:name",

@@ -33,7 +33,7 @@
         />
       </div>
       <button
-        type="register"
+        type="submit"
         class="btn font-weight-bold text-white bg-danger btn-block"
       >
         Register
@@ -63,7 +63,7 @@ export default {
     onRegister() {
       this.generateId();
       this.$store.dispatch("user/ADD_USER", this.user).then(() => {
-        this.$router.push("/register");
+        this.$router.push("/sign-in");
       });
     },
   },

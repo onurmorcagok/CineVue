@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      favorites: "users/favorites",
+      favorites: "user/favorites",
     }),
     bookmarkStatus() {
       const movie = this.favorites.filter(
