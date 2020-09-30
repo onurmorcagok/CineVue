@@ -80,14 +80,14 @@ export default {
   methods: {
     loginHandler() {
       if (this.isSignIn) {
-        this.$store.dispatch("user/sign_out", false);
+        this.$store.dispatch("user/sign-out", false);
       } else {
-        this.$router.push("/sign_in");
+        this.$router.push("/sign-in");
       }
     },
   },
   computed: {
-    ...mapGetters({ isLogin: "user/isLogin" }),
+    ...mapGetters({ isLogin: "user/isSignIn" }),
   },
 };
 </script>
