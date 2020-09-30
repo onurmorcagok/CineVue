@@ -61,8 +61,8 @@ export default {
     font-size: 1rem;
   }
   .movie-cards {
-    justify-content: left;
-    margin-left: 4.5em;
+    justify-content: center;
+    /* margin-left: 2.5em; */
   }
   .title {
     text-align: center;
