@@ -61,7 +61,7 @@
             class="btn btn-danger my-2 my-sm-0 text-white"
             type="button"
             @click="loginHandler"
-          >{{isLogin ? 'SIGN OUT': 'SIGN IN'}}</button>
+          >{{isSignIn ? 'SIGN OUT': 'SIGN IN'}}</button>
         </div>
       </div>
     </nav>
@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     loginHandler() {
-      if (this.isLogin) {
+      if (this.isSignIn) {
         this.$store.dispatch("user/sign_out", false);
       } else {
         this.$router.push("/sign_in");
