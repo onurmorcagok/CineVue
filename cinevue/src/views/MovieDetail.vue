@@ -225,7 +225,7 @@ a {
     justify-content: center;
   }
   .buttons {
-    margin-left:5em;
+    margin-left:3em;
   }
 }
 </style>
