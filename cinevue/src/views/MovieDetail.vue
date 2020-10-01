@@ -26,6 +26,11 @@
                 />
               </div>
               <small class="font-weight-bold ml-1">Rank</small>
+              <FavoriteButton
+                :movie="movieDetail"
+                class="ml-4"
+                v-if="isSignIn"
+              ></FavoriteButton>
             </div>
             <div class="list d-flex mt-3 ml-0">
               <li class="list-item mr-4">
@@ -56,12 +61,6 @@
                     <path d="M6 4l20 12-20 12z"></path> </symbol
                   >Play Trailer
                 </a> -->
-
-                <FavoriteButton
-                  :movie="movieDetail"
-                  class="ml-4"
-                  v-if="isLogin"
-                ></FavoriteButton>
               </div>
             </div>
             <h4 class="tagline font-weight-light font-italic">
@@ -113,7 +112,7 @@ export default {
       movieDetail: "movies/movieDetail",
       cast: "movies/cast",
       trailerShowing: "movies/trailerShowing",
-      isLogin: "user/isLogin",
+      isSignIn: "user/isSignIn",
     }),
   },
   created() {
@@ -197,7 +196,7 @@ li:hover {
     margin-left: 5em;
   }
   h3 {
-    margin-left:0em;
+    margin-left: 0em;
   }
   h5,
   p,
@@ -205,8 +204,8 @@ li:hover {
     font-size: 0.8rem;
   }
   .tagline {
-    font-size:0.7em;
-    margin-left:5.5em;
+    font-size: 0.7em;
+    margin-left: 5.5em;
   }
   .list {
     flex-direction: column;

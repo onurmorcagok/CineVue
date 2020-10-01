@@ -34,7 +34,7 @@ const routes = [
     path: "/register",
     name: "Register",
     component: () =>
-      import("../views/Register.vue"),
+      import("../views/user/Register.vue"),
 
     beforeSign: (next) => {
       const isSignIn = store.getters["user/isSignIn"];
@@ -49,13 +49,13 @@ const routes = [
     path: "/sign-in",
     name: "SignIn",
     component: () =>
-      import("../views/SignIn.vue"),
+      import("../views/user/SignIn.vue"),
   },
   {
     path: "/favorite-movies",
     name: "FavoriteMovies",
     component: () =>
-      import("../views/FavoriteMovies.vue"),
+      import("../views/user/FavoriteMovies.vue"),
   },
   {
     path: "/search/:name",

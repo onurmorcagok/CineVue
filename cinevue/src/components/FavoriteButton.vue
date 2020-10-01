@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="favorite-button">
     <a class="fav text-white" @click="addFavorites(movie)">
       <svg class="icon icon-bookmark">
         <use xlink:href="#icon-bookmark" />
@@ -7,7 +7,11 @@
       <symbol id="icon-bookmark" viewBox="0 0 32 32">
         <path d="M6 0v32l10-10 10 10v-32z"></path>
       </symbol>
-      {{isInWatchlist().length > 0 ? 'Remove from watchlist' : 'Add to watchlist'}}
+      {{
+        isInWatchlist().length > 0
+          ? "Remove from watchlist"
+          : "Add to watchlist"
+      }}
     </a>
   </div>
 </template>
@@ -25,13 +29,13 @@ export default {
   methods: {
     addFavorites(selectedMovie) {
       if (this.isInWatchlist().length > 0) {
-        this.$store.dispatch("users/REMOVE_FAVORITES", selectedMovie);
+        this.$store.dispatch("user/REMOVE_FAVORITES", selectedMovie);
       } else {
-        this.$store.dispatch("users/ADD_FAVORITES", selectedMovie);
+        this.$store.dispatch("user/ADD_FAVORITES", selectedMovie);
       }
     },
     isInWatchlist() {
-      const item = this.favorites.filter((obj) => obj.id === this.movie.id);
+      const item = this.favorites.filter((object) => object.id === this.movie.id);
       return item;
     },
   },
@@ -41,7 +45,7 @@ export default {
     }),
     bookmarkStatus() {
       const movie = this.favorites.filter(
-        (obj) => obj.id === this.selectedMovie.id
+        (object) => object.id === this.selectedMovie.id
       );
       if (movie.length > 0) {
         return movie;

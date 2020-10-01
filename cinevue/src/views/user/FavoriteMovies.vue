@@ -18,7 +18,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import MovieCards from "../components/MovieCards";
+import MovieCards from "../../components/MovieCards";
 export default {
   name: "FavoriteMovies",
   components: {
@@ -31,4 +31,8 @@ export default {
 </script>
 
 <style scoped>
+p {
+  font-size:5em;
+  font-weight: bold;
+}
 </style>
