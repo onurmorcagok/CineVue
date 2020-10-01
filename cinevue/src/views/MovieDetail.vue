@@ -33,7 +33,7 @@
               ></FavoriteButton>
               <div class="buttons ml-1 d-flex align-items-center">
               <a class="play ml-4 text-white" @click="showTrailer">
-                <i class="fas fa-play"></i>
+                <i class="fas fa-play text-success"></i>
                 Trailer
               </a>
             </div>

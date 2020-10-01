@@ -1,12 +1,8 @@
 <template>
   <div class="favorite-button">
     <a class="fav text-white" @click="addFavorites(movie)">
-      <i class="fas fa-star"></i>
-      <span>{{
-        isInWatchlist().length > 0
-          ? "Remove"
-          : "Add"
-      }}</span>
+      <i class="fas fa-star text-warning"></i>
+      <span>{{ isInWatchlist().length > 0 ? "Remove" : "Add" }}</span>
     </a>
   </div>
 </template>
@@ -25,7 +21,11 @@ export default {
     addFavorites(selectedMovie) {
       let message = "";
       if (this.isInWatchlist().length > 0) {
-        if(confirm(`Do you want to remove the ${selectedMovie.original_title} from favorites ?`)) {
+        if (
+          confirm(
+            `Do you want to remove the ${selectedMovie.original_title} from favorites ?`
+          )
+        ) {
           message = `${selectedMovie.original_title} has been removed from favorites.`;
           this.$store.dispatch("user/REMOVE_FAVORITES", selectedMovie);
         }
@@ -65,7 +65,6 @@ export default {
 </script>
 
 <style scoped>
-
 a {
   text-decoration: none;
 }
