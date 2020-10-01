@@ -66,7 +66,6 @@ export default {
 
 <style scoped>
 
-
 a {
   text-decoration: none;
 }
@@ -83,6 +82,7 @@ a {
   stroke: currentColor;
   fill: currentColor;
 }
+
 @media (max-width: 575.98px) {
   a {
     font-size: 0.8rem;

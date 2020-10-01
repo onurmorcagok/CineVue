@@ -169,6 +169,10 @@ li:hover {
   margin-left: 20px;
 }
 
+a {
+  text-decoration: none;
+}
+
 @media (max-width: 575.98px) {
   .body {
     padding-right: 0;
