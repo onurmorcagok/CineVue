@@ -19,6 +19,9 @@ export default {
     appNavbar: Navbar,
     appFooter: Footer,
   },
+  created() {
+    window.vueInstance = this;
+  }
 };
 </script>
 

@@ -88,7 +88,9 @@ export default {
   methods: {
     signHandler() {
       if (this.isSignIn) {
-        this.$store.dispatch("user/SIGN_OUT", false);
+        if (confirm("Are you sure you want to log out?")) {
+          this.$store.dispatch("user/SIGN_OUT", false);
+        }
       } else {
         this.$router.push("/sign-in");
       }

@@ -51,18 +51,7 @@
                 <small>Duration: {{ movieDetail.runtime }} minute</small>
               </li>
             </div>
-            <div class="select d-flex align-items-center mt-4">
-              <div class="buttons ml-5 d-flex align-items-center">
-                <!-- <a @click="showTrailer" class="play ml-4 text-white">
-                  <svg class="icon icon-play3">
-                    <use xlink:href="#icon-play3" />
-                  </svg>
-                  <symbol id="icon-play3" viewBox="0 0 32 32">
-                    <path d="M6 4l20 12-20 12z"></path> </symbol
-                  >Play Trailer
-                </a> -->
-              </div>
-            </div>
+            <div class="select d-flex align-items-center mt-4"></div>
             <h4 class="tagline font-weight-light font-italic">
               {{ movieDetail.tagline }}
             </h4>
@@ -78,7 +67,6 @@
         <Cast v-for="actor in cast" :key="actor.id" :actor="actor"></Cast>
       </div>
     </div>
-    <Trailer :movie="movieDetail" v-if="trailerShowing"></Trailer>
   </div>
 </template>
 
@@ -88,7 +76,6 @@ import API from "../api/api";
 import MovieImages from "../components/MovieImages";
 import FavoriteButton from "../components/FavoriteButton";
 import Cast from "../components/Cast";
-import Trailer from "../components/Trailer";
 export default {
   name: "MovieDetail",
   data() {
@@ -100,18 +87,11 @@ export default {
     MovieImages,
     FavoriteButton,
     Cast,
-    Trailer,
-  },
-  methods: {
-    showTrailer() {
-      this.$store.dispatch("movies/CHANGE_TRAILER_STATUS", true);
-    },
   },
   computed: {
     ...mapGetters({
       movieDetail: "movies/movieDetail",
       cast: "movies/cast",
-      trailerShowing: "movies/trailerShowing",
       isSignIn: "user/isSignIn",
     }),
   },

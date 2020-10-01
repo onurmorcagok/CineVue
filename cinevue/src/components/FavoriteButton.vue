@@ -3,8 +3,8 @@
     <a class="fav text-white" @click="addFavorites(movie)">
       <span>{{
         isInWatchlist().length > 0
-          ? "Remove from watchlist"
-          : "Add to watchlist"
+          ? "Remove from favorites"
+          : "Add to favorites"
       }}</span>
     </a>
   </div>
@@ -22,11 +22,21 @@ export default {
   },
   methods: {
     addFavorites(selectedMovie) {
+      let message = "";
       if (this.isInWatchlist().length > 0) {
-        this.$store.dispatch("user/REMOVE_FAVORITES", selectedMovie);
+        if(confirm(`Do you want to remove the ${selectedMovie.original_title} from favorites ?`)) {
+          message = `${selectedMovie.original_title} has been removed from favorites.`;
+          this.$store.dispatch("user/REMOVE_FAVORITES", selectedMovie);
+        }
       } else {
+        message = `${selectedMovie.original_title} has been added from favorites.`;
         this.$store.dispatch("user/ADD_FAVORITES", selectedMovie);
       }
+
+      this.$bvToast.toast(message, {
+        title: "ALERT",
+        autoHideDelay: 2000,
+      });
     },
     isInWatchlist() {
       const item = this.favorites.filter(
@@ -54,6 +64,7 @@ export default {
 </script>
 
 <style scoped>
+
 
 a {
   text-decoration: none;
