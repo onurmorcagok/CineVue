@@ -1,10 +1,11 @@
 <template>
   <div class="favorite-button">
     <a class="fav text-white" @click="addFavorites(movie)">
+      <i class="fas fa-star"></i>
       <span>{{
         isInWatchlist().length > 0
-          ? "Remove from favorites"
-          : "Add to favorites"
+          ? "Remove"
+          : "Add"
       }}</span>
     </a>
   </div>

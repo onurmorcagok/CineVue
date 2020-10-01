@@ -31,6 +31,12 @@
                 class="ml-4"
                 v-if="isSignIn"
               ></FavoriteButton>
+              <div class="buttons ml-1 d-flex align-items-center">
+              <a class="play ml-4 text-white" @click="showTrailer">
+                <i class="fas fa-play"></i>
+                Trailer
+              </a>
+            </div>
             </div>
             <div class="list d-flex mt-3 ml-0">
               <li class="list-item mr-4">
@@ -67,6 +73,7 @@
         <Cast v-for="actor in cast" :key="actor.id" :actor="actor"></Cast>
       </div>
     </div>
+    <Trailer :movie="movieDetail" v-if="trailerShowing"></Trailer>
   </div>
 </template>
 
@@ -76,6 +83,7 @@ import API from "../api/api";
 import MovieImages from "../components/MovieImages";
 import FavoriteButton from "../components/FavoriteButton";
 import Cast from "../components/Cast";
+import Trailer from "../components/Trailer";
 export default {
   name: "MovieDetail",
   data() {
@@ -83,16 +91,23 @@ export default {
       API,
     };
   },
+  methods: {
+    showTrailer() {
+      this.$store.dispatch("movies/SET_TRAILER_STATUS", true);
+    },
+  },
   components: {
     MovieImages,
     FavoriteButton,
     Cast,
+    Trailer,
   },
   computed: {
     ...mapGetters({
       movieDetail: "movies/movieDetail",
       cast: "movies/cast",
       isSignIn: "user/isSignIn",
+      trailerShowing: "movies/trailerShowing",
     }),
   },
   created() {
@@ -103,6 +118,7 @@ export default {
 </script>
 
 <style scoped>
+
 .body {
   background-color: #000;
   opacity: 0.9;
@@ -169,7 +185,7 @@ li:hover {
     margin: 2em 0;
   }
   .rank-container {
-    margin-left: 5em;
+    margin-left: 3em;
   }
   h2 {
     font-size: 1rem;
@@ -185,7 +201,7 @@ li:hover {
   }
   .tagline {
     font-size: 0.7em;
-    margin-left: 5.5em;
+    margin-left: 7.5em;
   }
   .list {
     flex-direction: column;
@@ -203,6 +219,9 @@ li:hover {
   }
   .cast-list {
     justify-content: center;
+  }
+  .buttons {
+    margin-left:5em;
   }
 }
 </style>
