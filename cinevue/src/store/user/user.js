@@ -51,6 +51,9 @@ const user = {
     SIGN_OUT({ commit }, payload) {
       commit("SIGN_OUT", payload);
     },
+    ADD_FAVORITES({ commit }, payload) {
+      commit("ADD_FAVORITES", payload);
+    },
     REMOVE_FAVORITES({ commit }, payload) {
       commit("REMOVE_FAVORITES", payload);
     },

@@ -1,17 +1,11 @@
 <template>
   <div class="favorite-button">
     <a class="fav text-white" @click="addFavorites(movie)">
-      <svg class="icon icon-bookmark">
-        <use xlink:href="#icon-bookmark" />
-      </svg>
-      <symbol id="icon-bookmark" viewBox="0 0 32 32">
-        <path d="M6 0v32l10-10 10 10v-32z"></path>
-      </symbol>
-      {{
+      <span>{{
         isInWatchlist().length > 0
           ? "Remove from watchlist"
           : "Add to watchlist"
-      }}
+      }}</span>
     </a>
   </div>
 </template>
@@ -35,7 +29,9 @@ export default {
       }
     },
     isInWatchlist() {
-      const item = this.favorites.filter((object) => object.id === this.movie.id);
+      const item = this.favorites.filter(
+        (object) => object.id === this.movie.id
+      );
       return item;
     },
   },
@@ -58,6 +54,11 @@ export default {
 </script>
 
 <style scoped>
+
+a {
+  text-decoration: none;
+}
+
 .fav:hover {
   opacity: 0.9;
   cursor: pointer;

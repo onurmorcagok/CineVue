@@ -1,11 +1,13 @@
 <template>
   <div>
-    <nav class="navigation navbar navbar-expand-lg navbar-light bg-warning text-dark">
+    <nav
+      class="navigation navbar navbar-expand-lg navbar-light bg-warning text-dark"
+    >
       <router-link class="nav-link" to="/">
         <img
           class="img"
           src="https://pbs.twimg.com/profile_images/1288534032020647936/FR_a2W9i_400x400.jpg"
-          style="width: 70px;"
+          style="width: 70px"
         />
         <label class="label">CineVue</label>
       </router-link>
@@ -53,7 +55,11 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link v-if="isSignIn" class="nav-link" to="/favorite-movies">My Favorites</router-link>
+            <router-link v-if="isSignIn" class="nav-link" to="/favorite-movies">
+              <i class="fas fa-star">
+                <span>My Favorites</span>
+              </i>
+            </router-link>
           </li>
         </ul>
         <div class="sign-in my-2 my-lg-0 mx-lg-5 mr-5">
@@ -61,7 +67,9 @@
             class="btn btn-danger my-2 my-sm-0 text-white"
             type="button"
             @click="signHandler"
-          >{{ isSignIn ? 'SIGN OUT': 'SIGN IN' }}</button>
+          >
+            {{ isSignIn ? "SIGN OUT" : "SIGN IN" }}
+          </button>
         </div>
       </div>
     </nav>
@@ -115,7 +123,7 @@ span {
 li {
   font-size: 20px;
 }
-li:hover{
-  color:#000;
+li:hover {
+  color: #000;
 }
 </style>
