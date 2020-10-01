@@ -64,7 +64,7 @@ export default {
         user: this.user,
         status: true,
       });
-      if (this.currentUser !== null) {
+      if (this.activeUser !== null) {
         this.$router.push("/");
       } else {
         this.alert = "User not found. Please check the sign in information";

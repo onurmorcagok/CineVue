@@ -1,9 +1,11 @@
 <template>
   <div class="container mt-4 col-6 p-3">
     <h2 class="mb-5 text-center text-white">Register</h2>
-    <form @submit.prevent="onRegister">
+    <ValidationObserver v-slot="{ handleSubmit }">
+    <form @submit.prevent="handleSubmit(onRegister)">
       <div class="form-group">
         <label class="text-white">E-Mail Address:</label>
+        <ValidationProvider name="email" rules="required" v-slot="{ errors }">
         <input
           type="email"
           class="form-control"
@@ -11,9 +13,12 @@
           placeholder="Enter e-mail address"
           v-model="user.email"
         />
+         <span class="text-danger">{{ errors[0] }}</span>
+        </ValidationProvider>
       </div>
       <div class="form-group">
         <label class="text-white">Username:</label>
+        <ValidationProvider name="username" rules="required" v-slot="{ errors }">
         <input
           type="text"
           class="form-control"
@@ -21,9 +26,12 @@
           placeholder="Enter username"
           v-model="user.username"
         />
+        <span class="text-danger">{{ errors[0] }}</span>
+        </ValidationProvider>
       </div>
       <div class="form-group">
         <label class="text-white">Password:</label>
+        <ValidationProvider name="password" rules="required" v-slot="{ errors }">
         <input
           type="password"
           class="form-control"
@@ -31,6 +39,8 @@
           placeholder="Enter password"
           v-model="user.password"
         />
+        <span class="text-danger">{{ errors[0] }}</span>
+        </ValidationProvider>
       </div>
       <button
         type="submit"
@@ -39,6 +49,7 @@
         Register
       </button>
     </form>
+    </ValidationObserver>
   </div>
 </template>
 
