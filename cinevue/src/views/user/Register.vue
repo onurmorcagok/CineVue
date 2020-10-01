@@ -83,6 +83,6 @@ export default {
 
 <style scoped>
 form {
-  margin-bottom: 340px;
+  margin-bottom: 245px;
 }
 </style>
