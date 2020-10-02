@@ -1,5 +1,11 @@
 # CineVue
 
+URL: https://cine-vue.vercel.app/
+
+# WARNING
+
+# The project has been prepared as an individual study and is not related to any person or institution.
+
 # Project Summary
 
 The project was created to search for movies by name, list by category, view movie details, view the movie trailer, and create a user registration using the TMDP API.
