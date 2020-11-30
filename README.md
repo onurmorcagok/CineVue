@@ -1,6 +1,6 @@
 # CineVue
 
-URL: https://cine-vue.vercel.app/
+Project URL: https://cine-vue.vercel.app/
 
 # Project Summary
 
