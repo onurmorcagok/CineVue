@@ -4,11 +4,6 @@
       class="navigation navbar navbar-expand-lg navbar-light bg-warning text-dark"
     >
       <router-link class="nav-link" to="/">
-        <img
-          class="img"
-          src="https://pbs.twimg.com/profile_images/1288534032020647936/FR_a2W9i_400x400.jpg"
-          style="width: 70px"
-        />
         <label class="label">CineVue</label>
       </router-link>
       <button
